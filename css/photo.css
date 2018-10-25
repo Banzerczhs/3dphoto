@@ -1,0 +1,135 @@
+.warp{
+    width: 100%;
+    height: 600px;
+    background-image: url('../img/bg.jpg');
+    background-size: cover;
+    background-position: 0px 0px;
+    overflow:hidden;
+}
+/*照片展示墙*/
+.photo_warll{
+    width: 100%;
+    height: 100%;
+    position:relative;
+}
+.photo_i,.side,.photo_3d{
+    width: 362px;
+    height: 398px;
+    border-radius:12px;
+    background-color: #fff;
+    padding: 24px 26px;
+    position:absolute;
+    left:0;
+    top:0;
+    transition:0.7s;
+    box-sizing:border-box;
+}
+/*图片最外层*/
+.photo_i{
+    left:50%;
+    top:50%;
+    perspective: 900px;
+    background-color: rgba(0,0,0,0);
+    transform: translate(-50%,-50%) scale(0.7) rotate(0);
+}
+/*图片3d转换层*/
+.photo_3d{
+    transform-style:preserve-3d;
+    transform-origin:0 50%;
+}
+.side{
+    backface-visibility: hidden;
+}
+/*图片正面*/
+.photo_front{
+    transform:rotateY(0deg);
+}
+.photo_front p{
+    width: 286px;
+    height: 286px;
+    border:solid 1px red;
+    margin:0 auto;
+    overflow:hidden;
+    display:flex;
+}
+.photo_front p img{
+    width: 100%;
+    align-self: flex-start;
+}
+.photo_front h2{
+    background-color: red;
+    width: 120px;
+    height: 40px;
+    font-size: 16px;
+    color:#fff;
+    line-height:40px;
+    font-weight: 100;
+    text-align:center;
+    border-radius:0 0 12px 12px;
+    margin:0 auto;
+}
+/*图片反面*/
+.photo_back{
+    transform: rotateY(-180deg);
+}
+.photo_back .desc{
+    border:solid 1px red;
+    width: 286px;
+    height: 300px;
+    margin:0 auto;
+    padding: 5px;
+    box-sizing:border-box;
+    font-family: '方正喵呜体';
+    color:#F755BE;
+}
+.photo_back .desc a{
+    color:#F755BE;
+}
+/*图片居中时的class样式*/
+.photo_warll .center{
+    transform:translate(-50%, -50%) rotate(0deg) scale(1);
+    z-index:9999;
+    cursor:pointer;
+}
+/*图片正面class样式*/
+.photo_warll .front .photo_3d{
+    transform:rotateY(0deg) translateX(0);
+}
+/*图片反面class样式*/
+.photo_warll .back .photo_3d{
+    transform:rotateY(-180deg) translateX(-100%);
+}
+/*导航区*/
+.nav{
+    position:absolute;
+    top:0;
+    left:0;
+    width: 100%;
+    height: 200px;
+    text-align:center;
+    line-height:60px;
+    background:-webkit-linear-gradient(top,rgba(0,0,0,0.7),transparent);
+}
+@font-face{
+    font-family: 'china';
+    src: url(../img/iconfont.woff) format("woff");
+}
+.nav .nav_i{
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border-radius:50%;
+    background-color: rgba(255,255,255,0.5);
+    transition:0.8s;
+    transform:scale(1) rotateY(0deg);
+    margin-right: 8px;
+    font-family: 'china';
+    text-align:center;
+    line-height:20px;
+    color:#fff;
+    font-size: 8px;
+    cursor:pointer;
+}
+.nav .active{
+    transform: scale(1.5);
+}
